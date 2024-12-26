@@ -1,0 +1,35 @@
+.todo-style {
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    row-gap: 10px;
+    column-gap: 10px;
+    margin-top: 10px;
+}
+
+.add-button {
+    background-color: rgb(52, 227, 52);
+}
+
+.delete-button {
+    background-color: rgb(231, 22, 22);
+}
+
+button {
+    font-size: 30px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input {
+    padding: 5px;
+    font-size: 20px;
+    border: 2px solid black;
+}
+
+span {
+    font-size: 20px;
+    text-transform: uppercase;
+}
