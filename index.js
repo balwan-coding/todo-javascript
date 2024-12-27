@@ -1,7 +1,13 @@
-let todoList = [
-  { item: "I read in books", dueDate: "12/12/2024" },
-  { item: "I read in class", dueDate: "12/12/2024" },
-];
+let todoList = [{ item: "today is complete my work", dueDate: "12/23/45" }];
+
+function localstorageItems() {
+  let storageItems = localStorage.getItem("todoList");
+
+  if (storageItems) {
+    todoList = JSON.parse(storageItems);
+  }
+}
+localstorageItems();
 displayContainer();
 
 function addTodo() {
@@ -13,6 +19,7 @@ function addTodo() {
   inputElement.value = "";
   dateElement.value = "";
   displayContainer();
+  localStorage.setItem("todoList", JSON.stringify(todoList));
 }
 
 function displayContainer() {
@@ -23,7 +30,7 @@ function displayContainer() {
     newHtml += `
     <span>${item}</span> 
     <span>${dueDate}</span>
-    <button class="delete-button" onclick="todoList.splice(${i} ,1);  displayContainer()">Delete</button>
+    <button class="delete-button" onclick="todoList.splice(${i} ,1);  displayContainer() , localStorage.clear(${i})">Delete</button>
    `;
   }
 
