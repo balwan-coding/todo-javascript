@@ -1,4 +1,4 @@
-let todoList = [{ item: "today is complete my work", dueDate: "12/23/45" }];
+let todoList = [];
 
 function localstorageItems() {
   let storageItems = localStorage.getItem("todoList");
@@ -30,9 +30,15 @@ function displayContainer() {
     newHtml += `
     <span>${item}</span> 
     <span>${dueDate}</span>
-    <button class="delete-button" onclick="todoList.splice(${i} ,1);  displayContainer() , localStorage.clear(${i})">Delete</button>
+    <button class="delete-button" onclick="deleteTodo(${i});  displayContainer()">Delete</button>
    `;
   }
 
   displayElement.innerHTML = newHtml;
+}
+
+function deleteTodo(index) {
+  todoList.splice(index, 1);
+  displayContainer();
+  localStorage.setItem("todoList", JSON.stringify(todoList));
 }
